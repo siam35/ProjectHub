@@ -50,9 +50,9 @@ function getVisibleProjects(
 export default function Dashboard() {
   const defaultProject = {
     id: crypto.randomUUID(),
-    projectName: "Learn React Native",
+    projectName: "Smart Home App",
     clientName: "Sumit",
-    projectUrl: "https://www.google.com",
+    projectUrl: "https://www.smart-home-app.com",
     category: "Mobile App",
     isFavorite: false,
     unitBudget: 10000,
