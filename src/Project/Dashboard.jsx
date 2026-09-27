@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddorEditForm from "./AddorForm";
+import AddorEditForm from "./AddorEditForm";
 import FilterSection from "./FilterSection";
 import ProjectList from "./ProjectList";
 import Summary from "./Summary";
