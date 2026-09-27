@@ -9,6 +9,7 @@ A dark-themed **Project & Client Dashboard** built with React + Vite + Tailwind 
 ## Features
 
 **Project Management**
+
 - Add a new project with validation (name, client, URL, category, budget)
 - Edit any project in place via the same form (add / edit modal)
 - Delete projects with one click
@@ -16,6 +17,7 @@ A dark-themed **Project & Client Dashboard** built with React + Vite + Tailwind 
 - Increase / decrease quantity (`Qty`) — budget recalculates live (`unitBudget × unit`)
 
 **Search, Filter & Sort** (all apply together)
+
 - 🔍 Live search by **project name or domain**
 - 🗂️ Filter by **Category** (Web, Mobile, UI/UX, Cloud, AI/ML, Branding)
 - 📊 Filter by **Status** (Pending / Completed)
@@ -26,9 +28,11 @@ A dark-themed **Project & Client Dashboard** built with React + Vite + Tailwind 
 - Empty state card with a quick **Reset Filters** action when nothing matches
 
 **Summary Panel**
+
 - Total projects, pending, completed and total budget cards — always computed from the **full** list, unaffected by filters
 
 **UI / UX**
+
 - Fully responsive (mobile → desktop), dark mode design
 - Accessible controls (labels, `aria-pressed` on the starred toggle)
 
@@ -36,12 +40,12 @@ A dark-themed **Project & Client Dashboard** built with React + Vite + Tailwind 
 
 ## Tech Stack
 
-| Layer | Tool |
-|---|---|
-| UI library | React 19 |
-| Build tool | Vite 8 |
-| Styling | Tailwind CSS 4 (Vite plugin) |
-| Linting | ESLint (flat config) |
+| Layer           | Tool                                              |
+| --------------- | ------------------------------------------------- |
+| UI library      | React 19                                          |
+| Build tool      | Vite 8                                            |
+| Styling         | Tailwind CSS 4 (Vite plugin)                      |
+| Linting         | ESLint (flat config)                              |
 | Extra libraries | **None** — filtering/sorting is plain React state |
 
 ---
@@ -88,7 +92,7 @@ ProjectHub/
 │       ├── Dashboard.jsx       # ⭐ state owner + filter/sort logic
 │       ├── Summary.jsx         # section heading
 │       ├── SummaryOverview.jsx # 4 stat cards
-│       ├── AddorEditModal.jsx  # add / edit form with validation
+│       ├── AddorEditForm.jsx  # add / edit form with validation
 │       ├── FilterSection.jsx   # search box, selects, starred, reset, count
 │       ├── ProjectList.jsx     # renders the project cards
 │       └── NotFound.jsx        # empty state ("no matching projects")
@@ -100,20 +104,20 @@ ProjectHub/
 
 ### Component responsibilities
 
-| Component | Role | Owns state? |
-|---|---|---|
-| `Dashboard` | Holds **all** app state and handlers; computes the visible list | ✅ `projects`, `search`, `category`, `status`, `sortBy`, `favoriteOnly` |
-| `FilterSection` | Presentational — search box, dropdowns, buttons, count badge | ❌ controlled by props |
-| `ProjectList` | Maps over the visible projects and renders cards | ❌ |
-| `AddorEditModal` | Add/edit form + field validation | ✅ local form state only |
-| `SummaryOverview` | Displays totals passed down from `Dashboard` | ❌ |
-| `NotFound` | Empty state + Reset button | ❌ |
+| Component         | Role                                                            | Owns state?                                                             |
+| ----------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `Dashboard`       | Holds **all** app state and handlers; computes the visible list | ✅ `projects`, `search`, `category`, `status`, `sortBy`, `favoriteOnly` |
+| `FilterSection`   | Presentational — search box, dropdowns, buttons, count badge    | ❌ controlled by props                                                  |
+| `ProjectList`     | Maps over the visible projects and renders cards                | ❌                                                                      |
+| `AddorEditForm`   | Add/edit form + field validation                                | ✅ local form state only                                                |
+| `SummaryOverview` | Displays totals passed down from `Dashboard`                    | ❌                                                                      |
+| `NotFound`        | Empty state + Reset button                                      | ❌                                                                      |
 
 ---
 
 ## Data Flow
 
-**One-way data flow** — state lives only in `Dashboard` and travels *down* as props; user actions travel *up* through callback functions.
+**One-way data flow** — state lives only in `Dashboard` and travels _down_ as props; user actions travel _up_ through callback functions.
 
 ```
                     ┌──────────────────────────────┐

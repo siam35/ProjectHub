@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddorEditModal from "./AddorEditModal";
+import AddorEditForm from "./AddorForm";
 import FilterSection from "./FilterSection";
 import ProjectList from "./ProjectList";
 import Summary from "./Summary";
@@ -167,7 +167,7 @@ export default function Dashboard() {
         </section>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
-          <AddorEditModal
+          <AddorEditForm
             onSave={handleAddEditTask}
             onCancel={() => setProjectToUpdate(null)}
             projectToUpdate={projectToUpdate}

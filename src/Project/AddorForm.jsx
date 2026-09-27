@@ -20,7 +20,7 @@ function isValidUrl(value) {
   }
 }
 
-export default function AddorEditModal({ onSave, onCancel, projectToUpdate }) {
+export default function AddorEditForm({ onSave, onCancel, projectToUpdate }) {
   const [project, setProject] = useState(projectToUpdate || emptyProject);
   const [isAdd, setIsAdd] = useState(Object.is(projectToUpdate, null));
   const [prevUpdate, setPrevUpdate] = useState(projectToUpdate);
